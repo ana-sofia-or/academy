@@ -1,0 +1,26 @@
+name: Docker build
+description: 'Build an image with docker'
+inputs:
+  path_dockerfile:
+    description: "Path for docker file"
+  image_name:
+    description: "Image name"
+  tag_name:
+    description: "Tag name for docker image"
+
+runs:
+  using: composite
+  steps:
+    - name: Define tag name
+      run:  if [ -z "${{ inputs.tag_name }}" ]; then
+        echo "TAG=$(date +%s)" >> $GITHUB_ENV
+        else
+        echo "TAG=${{ inputs.tag_name }}" >> $GITHUB_ENV
+        fi
+      shell: bash
+    - name: Build image
+      run: docker build . --file ${{inputs.path_dockerfile}} --tag ${{inputs.tag_name}}:${{env.TAG}}
+      shell: bash
+    - name: List image
+      run: docker images | grep academy
+      shell: bash
