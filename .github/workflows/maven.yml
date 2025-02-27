@@ -27,5 +27,10 @@ jobs:
         path_dockerfile: src/main/docker/Dockerfile.jvm
         image_name: anarodrigues141/academy
         tag_name: v1
+    - uses: ana-sofia-or/academy/.github/actions/docker_push@main
+      with:
+        dockerhub-username: ${{ vars.DOCKERHUB_USERNAME }}
+        dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}
+
 
 
