@@ -20,7 +20,7 @@ runs:
         fi
       shell: bash
     - name: Build image
-      run: docker build . --file ${{inputs.path_dockerfile}} --tag ${{inputs.tag_name}}:${{env.TAG}}
+      run: docker build . --file ${{inputs.path_dockerfile}} --tag ${{inputs.image_name}}:${{env.TAG}}
       shell: bash
     - name: List image
       run: docker images | grep academy
