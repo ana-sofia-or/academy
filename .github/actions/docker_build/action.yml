@@ -12,10 +12,11 @@ runs:
   using: composite
   steps:
     - name: Define tag name
-      run:  if [ -z "${{ inputs.tag_name }}" ]; then
-        echo "TAG=$(date +%s)" >> $GITHUB_ENV
+      run:  |
+        if [ -z "${{ inputs.tag_name }}" ]; then
+          echo "TAG=$(date +%s)" >> $GITHUB_ENV
         else
-        echo "TAG=${{ inputs.tag_name }}" >> $GITHUB_ENV
+          echo "TAG=${{ inputs.tag_name }}" >> $GITHUB_ENV
         fi
       shell: bash
     - name: Build image
