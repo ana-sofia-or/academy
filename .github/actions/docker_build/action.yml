@@ -19,9 +19,15 @@ runs:
           echo "TAG=${{ inputs.tag_name }}" >> $GITHUB_ENV
         fi
       shell: bash
-    - name: Build image
-      run: docker build . --file ${{inputs.path_dockerfile}} --tag ${{inputs.image_name}}:${{env.TAG}}
+
+    - name: Define image name
+      run: echo "DOCKER_IMAGE_NAME=${{inputs.image_name}}:${{env.TAG}}" >> $GITHUB_ENV
       shell: bash
+
+    - name: Build image
+      run: docker build . --file ${{inputs.path_dockerfile}} --tag ${{inputs.env.DOCKER_IMAGE_NAME}}
+      shell: bash
+
     - name: List image
       run: docker images | grep academy
       shell: bash

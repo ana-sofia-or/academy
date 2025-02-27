@@ -25,7 +25,7 @@ jobs:
     - uses: ana-sofia-or/academy/.github/actions/docker_build@main
       with:
         path_dockerfile: src/main/docker/Dockerfile.jvm
-        image_name: academy
+        image_name: anarodrigues141/academy
         tag_name: v1
 
 
