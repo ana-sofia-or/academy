@@ -1,0 +1,232 @@
+:root{
+    --blue: #4d4dec;
+    --lighter-blue: rgba(77, 77, 236, 0.82);
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family:monospace;
+}
+
+body{
+    margin:0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a{
+    text-decoration: none;
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 1.5rem;
+    padding-block: 1rem;
+    border-bottom: 1px solid lightgray;
+    h1{
+        color:var(--blue);
+        text-transform: uppercase;
+    }
+    ul{
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        padding-left: 0;
+        li{
+            cursor:pointer;
+            &:hover{
+                color:var(--blue);
+            }
+        }
+    }
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
+    section.product-display{
+        padding-inline: 1.5rem;
+        padding-block: 1rem;
+        width: 100%;
+
+        .product-header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding-block: 1rem;
+            align-items: center;
+            a{
+                cursor: pointer;
+            }
+        }
+
+        .product-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+            gap:2.5rem;
+            width: 100%;
+            article{
+                max-width: 350px;
+            }
+        }
+    }
+
+}
+
+aside{
+    overflow: hidden;
+    height: 0;
+    text-wrap: nowrap;
+    background-color: #F6F6F6;
+    width: 100%;
+    .btn-primary{
+        width: 100%;
+    }
+}
+
+main.visible-side-form aside{
+    height: fit-content;
+    padding-inline: 3rem;
+    padding-block: 3rem;
+}
+
+.product-grid article{
+    -webkit-box-shadow: 0px 0px 18px 4px rgba(232,232,232,1);
+    -moz-box-shadow: 0px 0px 18px 4px rgba(232,232,232,1);
+    box-shadow: 0px 0px 18px 4px rgba(232,232,232,1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    &:hover{
+        transform: scale(1.1);
+    }
+
+    div{
+        width:100%;
+        h3{
+            margin-bottom: 2px;
+        }
+        span{
+            font-size: 12px;
+            font-family: "Comic Sans MS", serif;
+            i{
+                color:green;
+                margin-inline-end: 10px;
+            }
+        }
+    }
+
+    .btn-secondary{
+        width: 100%;
+        margin-top:auto;
+    }
+
+    img{
+        width: 35%;
+        min-width: 100px;
+        object-fit: contain;
+        margin:10px;
+    }
+}
+
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    margin-block: 20px;
+    label{
+        margin-bottom: 5px;
+        text-transform: uppercase;
+    }
+    input{
+        padding: 10px 5px;
+        border-radius: 0;
+        border: 1px solid lightgray;
+    }
+}
+
+.btn-primary{
+    background-color: var(--blue);
+    color:white;
+    padding: 10px;
+    border:none;
+    margin-block: 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    &:hover{
+        background-color:var(--lighter-blue);
+    }
+}
+
+.btn-secondary{
+    border:1px solid black;
+    padding: 10px;
+    background:white;
+    color:black;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    &:hover{
+        background-color: var(--blue);
+        border-collapse: var(--blue);
+        color:white
+    }
+}
+
+footer{
+    background-color: black;
+    padding-inline: 2.5rem;
+    padding-block: 0.1rem;
+    margin-top:auto;
+    p{
+        color:white;
+    }
+}
+
+@media (min-width:650px) {
+    nav{
+        flex-direction: row;
+        justify-content: space-between;
+        padding-inline: 5rem;
+        padding-block: 1.5rem;
+    }
+    footer{
+        padding-inline: 5rem;
+    }
+    main{
+        flex-direction: row;
+        flex-flow:unset;
+        aside{
+            padding-top:5rem;
+            width: 0;
+        }
+        section.product-display{
+            padding-inline: 5rem;
+            padding-block: 3rem;
+        }
+
+    }
+    main.visible-side-form aside{
+        padding-inline: 3rem;
+    }
+
+    main.visible-side-form section.product-display{
+        width: 80%;
+    }
+
+    main.visible-side-form aside{
+        width: 20%;
+        padding-inline: 1.5rem;
+        min-width: 150px;
+        height: auto;
+    }
+}
