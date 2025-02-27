@@ -29,8 +29,8 @@ jobs:
         tag_name: v1
     - uses: ana-sofia-or/academy/.github/actions/docker_push@main
       with:
-        dockerhub-username: ${{ vars.DOCKERHUB_USERNAME }}
-        dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}
+        dockerhub_username: ${{ vars.DOCKERHUB_USERNAME }}
+        dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
 
 
 

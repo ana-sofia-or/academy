@@ -25,7 +25,7 @@ runs:
       shell: bash
 
     - name: Build image
-      run: docker build . --file ${{inputs.path_dockerfile}} --tag ${{inputs.env.DOCKER_IMAGE_NAME}}
+      run: docker build . --file ${{inputs.path_dockerfile}} --tag ${{env.DOCKER_IMAGE_NAME}}
       shell: bash
 
     - name: List image

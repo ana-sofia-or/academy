@@ -1,9 +1,10 @@
 name: ci
 description: "Login and push to Docker hub"
+
 inputs:
-  dockerhub-username:
+  dockerhub_username:
     description: "docker username"
-  dockerhub-token:
+  dockerhub_token:
     description: "docker password"
 
 on:
@@ -18,3 +19,6 @@ jobs:
       with:
         username: ${{ inputs.dockerhub-username }}
         password: ${{ inputs.dockerhub-token }}
+    - name: Push image to Docker Hub
+      run: docker push anarodrigues141/${{env.DOCKER_IMAGE_NAME}}
+      shell: bash
