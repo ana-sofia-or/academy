@@ -12,7 +12,7 @@ runs:
   using: composite
   steps:
     - name: Define tag name
-      run:  |
+      run: |
         if [ -z "${{ inputs.tag_name }}" ]; then
           echo "TAG=$(date +%s)" >> $GITHUB_ENV
         else
