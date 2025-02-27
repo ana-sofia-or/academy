@@ -1,5 +1,5 @@
 name: ci
-
+description: "Login and push to Docker hub"
 inputs:
   dockerhub-username:
     description: "docker username"
